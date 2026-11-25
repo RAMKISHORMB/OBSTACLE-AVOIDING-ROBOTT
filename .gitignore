@@ -1,0 +1,29 @@
+# Node & Vite
+node_modules/
+dist/
+dist-ssr/
+*.local
+.npm
+.vite
+
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+.venv/
+.pytest_cache/
+
+# PlatformIO
+.pio/
+.vscode/.browse.c_cpp.ui.config.json
+.vscode/c_cpp_properties.json
+.vscode/launch.json
+.vscode/ipch/
+
+# OS
+.DS_Store
+Thumbs.db
