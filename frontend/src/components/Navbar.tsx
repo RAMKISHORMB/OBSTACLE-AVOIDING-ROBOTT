@@ -94,6 +94,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             {/* Mode Switcher */}
             <button
+              id="btn-toggle-mode"
               onClick={onToggleMode}
               className={`px-3 py-1.5 text-xs font-semibold rounded-md border transition-all ${
                 mode === 'AUTONOMOUS'
@@ -107,6 +108,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             {/* Run / Pause Button */}
             <button
+              id="btn-toggle-run"
               onClick={onToggleRun}
               className={`flex items-center space-x-1.5 px-3 py-1.5 text-xs font-medium rounded-md border transition-colors ${
                 isRunning
@@ -120,6 +122,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             {/* Reset Button */}
             <button
+              id="btn-reset-sim"
               onClick={onReset}
               className="flex items-center space-x-1 px-2.5 py-1.5 text-xs font-medium rounded-md bg-white text-slate-700 border border-slate-200 hover:bg-slate-50 transition-colors"
               title="Reset simulation and robot pose"
@@ -130,6 +133,7 @@ export const Navbar: React.FC<NavbarProps> = ({
 
             {/* Emergency Stop Button */}
             <button
+              id="btn-estop"
               onClick={onEmergencyStop}
               className="flex items-center space-x-1.5 px-3 py-1.5 text-xs font-bold rounded-md bg-rose-600 text-white hover:bg-rose-700 active:scale-95 shadow-sm transition-all"
               title="Emergency Hard Brake (Spacebar)"
@@ -150,6 +154,8 @@ export const Navbar: React.FC<NavbarProps> = ({
             return (
               <button
                 key={tab.id}
+                id={`nav-tab-${tab.id}`}
+                data-testid={`tab-${tab.id}`}
                 onClick={() => setActiveTab(tab.id)}
                 className={`flex items-center space-x-1.5 px-3 py-1.5 rounded-md text-xs font-medium whitespace-nowrap transition-all ${
                   isActive

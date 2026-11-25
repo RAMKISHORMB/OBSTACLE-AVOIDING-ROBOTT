@@ -49,6 +49,7 @@ export const EnvironmentEditorControls: React.FC<EnvironmentEditorControlsProps>
     engine.activeScenario = 'Clear Canvas';
     engine.logEvent('INFO', 'ENVIRONMENT', 'Cleared all custom obstacles.');
     onClearSelected();
+    onSpeedChange(engine.speedMultiplier);
   };
 
   return (
@@ -96,7 +97,11 @@ export const EnvironmentEditorControls: React.FC<EnvironmentEditorControlsProps>
               return (
                 <button
                   key={sc}
-                  onClick={() => engine.loadScenario(sc)}
+                  id={`btn-scenario-${sc.toLowerCase().replace(/\s+/g, '-')}`}
+                  onClick={() => {
+                    engine.loadScenario(sc);
+                    onSpeedChange(engine.speedMultiplier);
+                  }}
                   className={`px-3 py-2 text-xs font-medium rounded-lg border text-left transition-all ${
                     isCurrent
                       ? 'bg-blue-50 text-blue-700 border-blue-300 font-semibold shadow-xs'
